@@ -112,7 +112,7 @@ int softToneCreate (int pin)
   int res ;
   pthread_t myThread ;
 
-  wiringPinMode      (pin, OUTPUT) ;
+  wiringPiPinMode      (pin, OUTPUT) ;
   wiringPiDigitalWrite (pin, LOW) ;
 
   if (threads [pin] != 0)
