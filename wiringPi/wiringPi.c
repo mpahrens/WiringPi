@@ -1294,7 +1294,7 @@ void pinEnableED01Pi (int pin)
  *********************************************************************************
  */
 
-void pinModeAlt (int pin, int mode)
+void wiringPiPinModeAlt (int pin, int mode)
 {
   int fSel, shift ;
 
@@ -1321,7 +1321,7 @@ void pinModeAlt (int pin, int mode)
  *********************************************************************************
  */
 
-void pinMode (int pin, int mode)
+void wiringPiPinMode (int pin, int mode)
 {
   int    fSel, shift, alt ;
   struct wiringPiNodeStruct *node = wiringPiNodes ;
@@ -1408,7 +1408,7 @@ void pinMode (int pin, int mode)
  *********************************************************************************
  */
 
-void pullUpDnControl (int pin, int pud)
+void wiringPiPullUpDnControl (int pin, int pud)
 {
   struct wiringPiNodeStruct *node = wiringPiNodes ;
 
@@ -1442,7 +1442,7 @@ void pullUpDnControl (int pin, int pud)
  *********************************************************************************
  */
 
-int digitalRead (int pin)
+int wiringPiDigitalRead (int pin)
 {
   char c ;
   struct wiringPiNodeStruct *node = wiringPiNodes ;
@@ -1485,7 +1485,7 @@ int digitalRead (int pin)
  *********************************************************************************
  */
 
-void digitalWrite (int pin, int value)
+void wiringPiDigitalWrite (int pin, int value)
 {
   struct wiringPiNodeStruct *node = wiringPiNodes ;
 
@@ -1528,7 +1528,7 @@ void digitalWrite (int pin, int value)
  *********************************************************************************
  */
 
-void pwmWrite (int pin, int value)
+void wiringPiPwmWrite (int pin, int value)
 {
   struct wiringPiNodeStruct *node = wiringPiNodes ;
 
@@ -1562,7 +1562,7 @@ void pwmWrite (int pin, int value)
  *********************************************************************************
  */
 
-int analogRead (int pin)
+int wiringPiAnalogRead (int pin)
 {
   struct wiringPiNodeStruct *node = wiringPiNodes ;
 
@@ -1581,7 +1581,7 @@ int analogRead (int pin)
  *********************************************************************************
  */
 
-void analogWrite (int pin, int value)
+void wiringPiAnalogWrite (int pin, int value)
 {
   struct wiringPiNodeStruct *node = wiringPiNodes ;
 
