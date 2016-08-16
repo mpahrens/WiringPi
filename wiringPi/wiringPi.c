@@ -1355,7 +1355,7 @@ void wiringPiPinMode (int pin, int mode)
       if (RASPBERRY_PI_PERI_BASE == 0)	// Ignore for now
 	return ;
 
-      pinMode (origPin, PWM_OUTPUT) ;	// Call myself to enable PWM mode
+      wiringPiPinMode (origPin, PWM_OUTPUT) ;	// Call myself to enable PWM mode
       pwmSetMode (PWM_MODE_MS) ;
     }
     else if (mode == PWM_OUTPUT)
@@ -1607,7 +1607,7 @@ void pwmToneWrite (int pin, int freq)
     return ;
 
   if (freq == 0)
-    pwmWrite (pin, 0) ;             // Off
+    wiringPiPwmWrite (pin, 0) ;             // Off
   else
   {
     range = 600000 / freq ;
@@ -1645,7 +1645,7 @@ void digitalWriteByte (const int value)
   {
     for (pin = 0 ; pin < 8 ; ++pin)
     {
-      digitalWrite (pinToGpio [pin], value & mask) ;
+      wiringPiDigitalWrite (pinToGpio [pin], value & mask) ;
       mask <<= 1 ;
     }
     return ;
@@ -1677,7 +1677,7 @@ unsigned int digitalReadByte (void)
   {
     for (pin = 0 ; pin < 8 ; ++pin)
     {
-      x = digitalRead (pinToGpio [pin]) ;
+      x = wiringPiDigitalRead (pinToGpio [pin]) ;
       data = (data << 1) | x ;
     }
   }
