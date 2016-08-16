@@ -173,14 +173,14 @@ extern int  wiringPiSetupSys    (void) ;
 extern int  wiringPiSetupGpio   (void) ;
 extern int  wiringPiSetupPhys   (void) ;
 
-extern void pinModeAlt          (int pin, int mode) ;
-extern void pinMode             (int pin, int mode) ;
-extern void pullUpDnControl     (int pin, int pud) ;
-extern int  digitalRead         (int pin) ;
-extern void digitalWrite        (int pin, int value) ;
-extern void pwmWrite            (int pin, int value) ;
-extern int  analogRead          (int pin) ;
-extern void analogWrite         (int pin, int value) ;
+extern void wiringPiPinModeAlt          (int pin, int mode) ;
+extern void wiringPiPinMode             (int pin, int mode) ;
+extern void wiringPiPullUpDnControl     (int pin, int pud) ;
+extern int  wiringPiDigitalRead         (int pin) ;
+extern void wiringPiDigitalWrite        (int pin, int value) ;
+extern void wiringPiPwmWrite            (int pin, int value) ;
+extern int  wiringPiAnalogRead          (int pin) ;
+extern void wiringPiAnalogWrite         (int pin, int value) ;
 
 // PiFace specifics 
 //	(Deprecated)
