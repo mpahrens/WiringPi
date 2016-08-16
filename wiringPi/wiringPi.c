@@ -1612,7 +1612,7 @@ void pwmToneWrite (int pin, int freq)
   {
     range = 600000 / freq ;
     pwmSetRange (range) ;
-    pwmWrite    (pin, freq / 2) ;
+    wiringPiPwmWrite    (pin, freq / 2) ;
   }
 }
 
@@ -1713,7 +1713,7 @@ void digitalWriteByte2 (const int value)
   {
     for (pin = 20 ; pin < 28 ; ++pin)
     {
-      digitalWrite (pin, value & mask) ;
+      wiringPiDigitalWrite (pin, value & mask) ;
       mask <<= 1 ;
     }
     return ;
@@ -1734,7 +1734,7 @@ unsigned int digitalReadByte2 (void)
   {
     for (pin = 20 ; pin < 28 ; ++pin)
     {
-      x = digitalRead (pin) ;
+      x = wiringPiDigitalRead (pin) ;
       data = (data << 1) | x ;
     }
   }
