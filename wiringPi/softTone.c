@@ -70,10 +70,10 @@ static PI_THREAD (softToneThread)
     {
       halfPeriod = 500000 / freq ;
 
-      digitalWrite (pin, HIGH) ;
+      wiringPiDigitalWrite (pin, HIGH) ;
       delayMicroseconds (halfPeriod) ;
 
-      digitalWrite (pin, LOW) ;
+      wiringPiDigitalWrite (pin, LOW) ;
       delayMicroseconds (halfPeriod) ;
     }
   }
@@ -112,8 +112,8 @@ int softToneCreate (int pin)
   int res ;
   pthread_t myThread ;
 
-  pinMode      (pin, OUTPUT) ;
-  digitalWrite (pin, LOW) ;
+  wiringPinMode      (pin, OUTPUT) ;
+  wiringPiDigitalWrite (pin, LOW) ;
 
   if (threads [pin] != 0)
     return -1 ;
@@ -145,6 +145,6 @@ void softToneStop (int pin)
     pthread_cancel (threads [pin]) ;
     pthread_join   (threads [pin], NULL) ;
     threads [pin] = 0 ;
-    digitalWrite (pin, LOW) ;
+    wiringPiDigitalWrite (pin, LOW) ;
   }
 }
